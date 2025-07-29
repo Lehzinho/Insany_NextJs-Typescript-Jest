@@ -1,25 +1,19 @@
 export const DefaultTheme = {
   colors: {
-    primary: "#007bff",
-    secondary: "#6c757d",
-    success: "#28a745",
-    danger: "#dc3545",
-    warning: "#ffc107",
-    info: "#17a2b8",
-    light: "#f8f9fa",
-    dark: "#343a40",
-    white: "#ffffff",
-    black: "#000000",
+    background: "#F3F7FF",
+    white: "#FFFFFF",
+    "logo-color": "#5D5D6D",
+    "textos-apoio": "#737380",
+    excluir: "#DE3838",
   },
   fonts: {
-    primary:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    mono: 'Monaco, "Lucida Console", monospace',
+    logo: "700 2.5rem/1.5 Inter",
+    shopingCart: "500 0.625rem/2.6 Saira",
   },
   breakpoints: {
-    mobile: "768px",
-    tablet: "1024px",
-    desktop: "1200px",
+    mobile: "48rem",
+    tablet: "64rem",
+    desktop: "75rem",
   },
   spacing: {
     xs: "0.25rem",
