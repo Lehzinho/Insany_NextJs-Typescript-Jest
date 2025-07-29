@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ["comprarcuecas.com.br"],
+  },
 };
 
 export default nextConfig;

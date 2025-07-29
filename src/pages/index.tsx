@@ -1,6 +1,7 @@
 import Head from "next/head";
 import * as S from "./styles";
 import { Inter, Saira } from "next/font/google";
+import ProductCard from "@/components/productCard";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,7 +23,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <S.Container className={`${inter.variable} ${saira.variable}`}>
-        hello
+        <h1>Todos os produtos</h1>
+        <section>
+          <ProductCard />
+        </section>
       </S.Container>
     </>
   );
