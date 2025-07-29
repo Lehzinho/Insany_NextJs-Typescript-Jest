@@ -1,5 +1,16 @@
 import Head from "next/head";
 import * as S from "./styles";
+import { Inter, Saira } from "next/font/google";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const saira = Saira({
+  variable: "--font-saira",
+  subsets: ["latin"],
+});
 
 export default function Home() {
   return (
@@ -10,7 +21,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <S.Container>hello</S.Container>
+      <S.Container className={`${inter.variable} ${saira.variable}`}>
+        hello
+      </S.Container>
     </>
   );
 }
