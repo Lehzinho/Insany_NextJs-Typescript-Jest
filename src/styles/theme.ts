@@ -5,14 +5,22 @@ export const DefaultTheme = {
     black: "#000000",
     yellow: "#FFE100",
     green: "#1B9847",
+    "88gray": "#E9E9F0",
     "logo-color": "#5D5D6D",
     "textos-apoio": "#737380",
+    "border-color": "#E0E0E0",
+    purple: "#A212DF",
     excluir: "#DE3838",
   },
   fonts: {
     logo: "700 2.5rem/1.5 Inter",
+
     price: "700 1.5rem/1.5 inter",
+
     button: "500 1rem/1.5 Inter",
+    buttonRegular: "400 1rem/1.5 Inter",
+    categoryh3: "700 1rem/1.5 inter",
+
     h3: "700 0.875rem/1.5 Inter",
     regular: "400 0.875rem/1.5 Inter",
 
