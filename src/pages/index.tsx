@@ -2,6 +2,11 @@ import Head from "next/head";
 import * as S from "./styles";
 import { Inter, Saira } from "next/font/google";
 import ProductCard from "@/components/productCard";
+import { GetStaticProps } from "next";
+import { ProductProps } from "@/model/products";
+import { PaginationProps } from "@/model/pagination";
+import Pagination from "@/components/pagination";
+import { CategoryProps } from "@/model/category";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,7 +18,18 @@ const saira = Saira({
   subsets: ["latin"],
 });
 
-export default function Home() {
+interface HomeProps {
+  products: {
+    products: ProductProps[];
+    pagination: PaginationProps;
+  };
+  categories: {
+    categories: CategoryProps[];
+  };
+}
+
+export default function Home({ products, categories }: HomeProps) {
+  console.log(categories);
   return (
     <>
       <Head>
@@ -24,10 +40,59 @@ export default function Home() {
       </Head>
       <S.Container className={`${inter.variable} ${saira.variable}`}>
         <h1>Todos os produtos</h1>
-        <section>
-          <ProductCard />
-        </section>
+        <S.ProductsContainer>
+          <div>
+            {products.products.map((prod) => (
+              <ProductCard key={prod.id} {...prod} />
+            ))}
+          </div>
+          <Pagination {...products.pagination} />
+        </S.ProductsContainer>
+        <h1>Principais categorias</h1>
+        <S.CategoriesContainer>
+          {categories.categories.map((item) => (
+            <button>
+              <h3>{item.name}</h3>
+              <p>{`${item.productCount} produtos`}</p>
+            </button>
+          ))}
+        </S.CategoriesContainer>
       </S.Container>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const responseProducts = await fetch(
+      "http://api.insany.co/api/products?page=1&limit=6"
+    );
+
+    const responseCategories = await fetch(
+      "http://api.insany.co/api/categories"
+    );
+
+    if (!responseProducts.ok) {
+      throw new Error(`HTTP error! status: ${responseProducts.status}`);
+    }
+
+    const products = await responseProducts.json();
+    const categories = await responseCategories.json();
+
+    const props = { products, categories };
+
+    return {
+      props: props,
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.error("Erro ao buscar produtos:", error);
+
+    return {
+      props: {
+        categories: [],
+        products: [],
+      },
+    };
+  }
+};
