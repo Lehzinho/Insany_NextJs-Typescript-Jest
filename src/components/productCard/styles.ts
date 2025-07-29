@@ -28,6 +28,7 @@ export const RatingContainer = styled.div`
 
   p {
     font: ${({ theme }) => theme.fonts.regular};
+    text-transform: capitalize;
   }
 
   & > p:nth-child(2) {
@@ -49,6 +50,11 @@ export const InfoContainer = styled.div`
   }
   p {
     font: ${({ theme }) => theme.fonts.regular};
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   margin-bottom: 15px;
 `;
@@ -80,6 +86,11 @@ export const Button = styled.button`
 
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
-
   font: ${({ theme }) => theme.fonts.button};
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;

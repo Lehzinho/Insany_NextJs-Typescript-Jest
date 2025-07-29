@@ -3,33 +3,37 @@ import React from "react";
 import { LuShoppingCart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import * as S from "./styles";
+import { ProductProps } from "@/model/products";
 
-const ProductCard = () => {
+const ProductCard = ({
+  id,
+  image,
+  name,
+  price,
+  brand,
+  category,
+  description,
+  rating,
+  stock,
+}: ProductProps) => {
   return (
     <S.CardContainer>
-      <Image
-        src={
-          "https://comprarcuecas.com.br/cdn/shop/files/6a8d6b7ee4f0e5c2c5de8e1bb8dd1a80.jpg"
-        }
-        width={356}
-        height={270}
-        alt="camiseta"
-      />
+      <Image src={image} width={356} height={270} alt="camiseta" />
       <div>
         <S.RatingContainer>
-          <p>Roupas e Calçados</p>
+          <p>{category}</p>
           <p>
             <FaStar size={14} />
-            4.4
+            {rating}
           </p>
         </S.RatingContainer>
         <S.InfoContainer>
-          <h3>Camiseta Básica Premium</h3>
-          <p>Camisa 100% algodão com corte moderno e acabamento premium...</p>
+          <h3>{name}</h3>
+          <p>{description}</p>
         </S.InfoContainer>
         <S.PriceContainer>
-          <p>R$ 89,99</p>
-          <p>50 em estoque</p>
+          <p>R$ {price}</p>
+          <p>{`${stock} em estoque`}</p>
         </S.PriceContainer>
         <S.Button>
           <LuShoppingCart size={24} />
