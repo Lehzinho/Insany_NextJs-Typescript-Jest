@@ -4,6 +4,8 @@ import { LuShoppingCart } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import * as S from "./styles";
 import { ProductProps } from "@/model/products";
+import Link from "next/link";
+import Button from "@/components/button";
 
 const ProductCard = ({
   id,
@@ -18,7 +20,9 @@ const ProductCard = ({
 }: ProductProps) => {
   return (
     <S.CardContainer>
-      <Image src={image} width={356} height={270} alt="camiseta" />
+      <Link href={`/product/${id}`}>
+        <Image src={image} width={356} height={270} alt="camiseta" />
+      </Link>
       <div>
         <S.RatingContainer>
           <p>{category}</p>
@@ -35,10 +39,7 @@ const ProductCard = ({
           <p>R$ {price}</p>
           <p>{`${stock} em estoque`}</p>
         </S.PriceContainer>
-        <S.Button>
-          <LuShoppingCart size={24} />
-          Adicionar
-        </S.Button>
+        <Button />
       </div>
     </S.CardContainer>
   );
