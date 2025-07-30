@@ -1,5 +1,4 @@
 import Head from "next/head";
-import * as S from "../styles/pages/home.styles";
 import { Inter, Saira } from "next/font/google";
 import { GetStaticProps } from "next";
 import { ProductProps } from "@/model/products";
@@ -11,6 +10,8 @@ import { addPagination, addProducts } from "@/redux/products/slice";
 import Products from "@/components/products";
 import Link from "next/link";
 import { addCategories, addSelectedCategory } from "@/redux/categories/slice";
+
+import * as S from "@/styles/pages/home.styles";
 
 const inter = Inter({
   variable: "--font-inter",

@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
 import Products from "@/components/products";
 import { PaginationProps } from "@/model/pagination";
 import { ProductProps } from "@/model/products";
 import { addPagination, addProducts } from "@/redux/products/slice";
 import { GetServerSideProps } from "next";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as S from "../../../styles/pages/category.styles";
 import { AppRootState } from "@/redux/store";
+import * as S from "@/styles/pages/category.styles";
 
 interface CategoryProps {
   products: {

@@ -1,7 +1,6 @@
-import React from "react";
+import shopingBag from "@/assets/icons/shopingBag.svg";
 import Image from "next/image";
 import * as S from "./styles";
-import shopingBag from "@/assets/icons/shopingBag.svg";
 
 const ShopingBag = () => {
   return (

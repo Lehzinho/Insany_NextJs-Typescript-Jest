@@ -17,10 +17,14 @@ const Pagination = ({
   const { name } = router.query;
 
   async function handleChangePage() {
-    const response = await fetch(`http://api.insany.co/api/products`);
+    try {
+      const response = await fetch(`https://api.insany.co/api/products`);
+      const products = await response.json();
+      console.log(products);
+    } catch (error) {
+      console.log(error);
+    }
 
-    const products = await response.json();
-    console.log(products);
     //dispatch(addProducts(products));
   }
 

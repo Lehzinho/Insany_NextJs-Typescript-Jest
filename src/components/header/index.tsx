@@ -1,9 +1,8 @@
-import React from "react";
+import Link from "next/link";
 import Container from "../container";
-import * as S from "./styles";
 import Input from "./components/input";
 import ShopingBag from "./components/shopingBag";
-import Link from "next/link";
+import * as S from "./styles";
 
 const Header = () => {
   return (
@@ -15,7 +14,9 @@ const Header = () => {
           </Link>
           <div>
             <Input />
-            <ShopingBag />
+            <Link href={"/checkout"}>
+              <ShopingBag />
+            </Link>
           </div>
         </S.MainSection>
       </Container>
