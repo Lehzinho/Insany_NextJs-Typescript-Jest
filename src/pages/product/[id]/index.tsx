@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import Image from "next/image";
 import React from "react";
 
-import * as S from "./product.styles";
+import * as S from "../../../styles/pages/product.styles";
 import { useRouter } from "next/router";
 
 import back from "@/assets/icons/back.svg";
