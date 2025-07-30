@@ -1,4 +1,4 @@
-# InsanityShop
+# InsanyShop
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.4.4-black.svg)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
