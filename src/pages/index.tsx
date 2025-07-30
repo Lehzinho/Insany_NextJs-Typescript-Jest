@@ -1,5 +1,5 @@
 import Head from "next/head";
-import * as S from "./styles";
+import * as S from "./home.styles";
 import { Inter, Saira } from "next/font/google";
 import { GetStaticProps } from "next";
 import { ProductProps } from "@/model/products";

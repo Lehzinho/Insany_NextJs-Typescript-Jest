@@ -6,7 +6,7 @@ import { addPagination, addProducts } from "@/redux/products/slice";
 import { GetServerSideProps } from "next";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as S from "./styles";
+import * as S from "./category.styles";
 import { AppRootState } from "@/redux/store";
 
 interface CategoryProps {
