@@ -5,6 +5,7 @@ import * as S from "./styles";
 import { CartItemProps as ItemProps } from "@/model/cartItem";
 import { useDispatch } from "react-redux";
 import { removeShoppingCartItem } from "@/redux/shopingCart/slice";
+import ItemQuantity from "./components/itemQuantity";
 
 interface CartItemProps {
   item: ItemProps;
@@ -28,7 +29,11 @@ const CartItem = ({ item }: CartItemProps) => {
         </div>
         <p>{item.description}</p>
         <div>
-          <p>{item.quantity}</p>
+          <ItemQuantity
+            id={item.id}
+            quantity={item.quantity}
+            stock={item.stock}
+          />
           <p>R$ {item.quantity * item.price}</p>
         </div>
       </S.CartItemInformation>

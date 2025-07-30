@@ -5,8 +5,10 @@ export const CartItemContainer = styled.div`
   gap: 15px;
   background-color: ${({ theme }) => theme.colors.white};
 
+  img {
+    border-radius: 8px 0 0 8px;
+  }
   border-radius: 8px;
-  overflow: hidden;
 `;
 
 export const CartItemInformation = styled.div`
@@ -21,7 +23,7 @@ export const CartItemInformation = styled.div`
     font: ${({ theme }) => theme.fonts["Inter/12/400"]};
   }
 
-  svg {
+  & > div:first-child > button > svg {
     color: ${({ theme }) => theme.colors.excluir};
   }
 
@@ -31,7 +33,7 @@ export const CartItemInformation = styled.div`
     justify-content: space-between;
   }
 
-  button {
+  & > div:first-child > button {
     all: unset;
     cursor: pointer;
   }

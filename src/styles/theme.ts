@@ -11,6 +11,8 @@ export const DefaultTheme = {
     "border-color": "#E0E0E0",
     "Inputs-Icons": "#41414D",
     "gray-textos": "#617480",
+    "border-gray": "#A8A8B3",
+    "box-gray": "#F3F5F6",
     purple: "#A212DF",
     excluir: "#DE3838",
   },
