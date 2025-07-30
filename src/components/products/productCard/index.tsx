@@ -6,40 +6,38 @@ import * as S from "./styles";
 import { ProductProps } from "@/model/products";
 import Link from "next/link";
 import Button from "@/components/button";
+import { useDispatch } from "react-redux";
+import { addShoppingCartItem } from "@/redux/shopingCart/slice";
 
-const ProductCard = ({
-  id,
-  image,
-  name,
-  price,
-  brand,
-  category,
-  description,
-  rating,
-  stock,
-}: ProductProps) => {
+const ProductCard = (item: ProductProps) => {
+  const dispach = useDispatch();
+
+  function handleAddItem() {
+    dispach(addShoppingCartItem(item));
+  }
+
   return (
     <S.CardContainer>
-      <Link href={`/product/${id}`}>
-        <Image src={image} width={356} height={270} alt="camiseta" />
+      <Link href={`/product/${item.id}`}>
+        <Image src={item.image} width={356} height={270} alt="camiseta" />
       </Link>
       <div>
         <S.RatingContainer>
-          <p>{category}</p>
+          <p>{item.category}</p>
           <p>
             <FaStar size={14} />
-            {rating}
+            {item.rating}
           </p>
         </S.RatingContainer>
         <S.InfoContainer>
-          <h3>{name}</h3>
-          <p>{description}</p>
+          <h3>{item.name}</h3>
+          <p>{item.description}</p>
         </S.InfoContainer>
         <S.PriceContainer>
-          <p>R$ {price}</p>
-          <p>{`${stock} em estoque`}</p>
+          <p>R$ {item.price}</p>
+          <p>{`${item.stock} em estoque`}</p>
         </S.PriceContainer>
-        <Button text="Adicionar" />
+        <Button text="Adicionar" onClick={handleAddItem} />
       </div>
     </S.CardContainer>
   );

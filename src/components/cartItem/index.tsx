@@ -2,28 +2,34 @@ import Image from "next/image";
 import { IoTrashOutline } from "react-icons/io5";
 
 import * as S from "./styles";
-const CartItem = () => {
+import { CartItemProps as ItemProps } from "@/model/cartItem";
+import { useDispatch } from "react-redux";
+import { removeShoppingCartItem } from "@/redux/shopingCart/slice";
+
+interface CartItemProps {
+  item: ItemProps;
+}
+
+const CartItem = ({ item }: CartItemProps) => {
+  const dispatch = useDispatch();
+
+  function handleRemoveItem() {
+    dispatch(removeShoppingCartItem(item.id));
+  }
   return (
     <S.CartItemContainer>
-      <Image
-        src="https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="teste"
-        width={256}
-        height={211}
-      />
+      <Image src={item.image} alt="teste" width={256} height={211} />
       <S.CartItemInformation>
         <div>
-          <h3>Caneca de cerâmica rústica</h3>
-          <IoTrashOutline size={24} />
+          <h3>{item.name}</h3>
+          <button onClick={handleRemoveItem}>
+            <IoTrashOutline size={24} />
+          </button>
         </div>
-        <p>
-          Aqui vem um texto descritivo do produto, esta caixa de texto servirá
-          apenas de exemplo para que simule algum texto que venha a ser inserido
-          nesse campo, descrevendo tal produto.
-        </p>
+        <p>{item.description}</p>
         <div>
-          <p>1</p>
-          <p>R$ 40,00</p>
+          <p>{item.quantity}</p>
+          <p>R$ {item.quantity * item.price}</p>
         </div>
       </S.CartItemInformation>
     </S.CartItemContainer>

@@ -30,4 +30,9 @@ export const CartItemInformation = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  button {
+    all: unset;
+    cursor: pointer;
+  }
 `;

@@ -5,7 +5,7 @@ export const CheckoutContainer = styled.main`
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 
-  padding-top: 40px;
+  padding: 40px 0;
 `;
 
 export const CartContainer = styled.section`
@@ -84,4 +84,7 @@ export const ItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  a {
+    font: ${({ theme }) => theme.fonts.price600};
+  }
 `;

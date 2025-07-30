@@ -4,20 +4,33 @@ import BackButton from "@/components/backButton";
 import Link from "next/link";
 import Button from "@/components/button";
 import CartItem from "@/components/cartItem";
+import { useSelector } from "react-redux";
+import { AppRootState } from "@/redux/store";
 const Checkout = () => {
+  const { shoppingCart, totalPrice } = useSelector(
+    (state: AppRootState) => state.shopingCart
+  );
+
+  const entrega = 40;
+
   return (
     <S.CheckoutContainer>
       <S.CartContainer>
         <BackButton />
         <h1>SEU CARRINHO</h1>
         <p>
-          Total (3 produtos) <span>R$ 161,00</span>
+          Total ({shoppingCart.length} produtos) <span>R$ {totalPrice}</span>
         </p>
         <S.ItemsContainer>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {shoppingCart.length === 0 && (
+            <div>
+              <p>Seu carrinho está vazio!</p>
+              <Link href={"/"}>Clique aqui para começar suas compras.</Link>
+            </div>
+          )}
+          {shoppingCart.map((item) => (
+            <CartItem key={item.id} item={item} />
+          ))}
         </S.ItemsContainer>
       </S.CartContainer>
       <S.OrderContainer>
@@ -26,18 +39,18 @@ const Checkout = () => {
           <ul>
             <li>
               <p>Subtotal de produtos</p>
-              <p>R$ 161,00</p>
+              <p>R$ {totalPrice}</p>
             </li>
             <li>
               <p>Entrega</p>
-              <p>R$ 40,00</p>
+              <p>R$ {entrega},00</p>
             </li>
             <li>
               <div />
             </li>
             <li>
               <p>Total</p>
-              <p>R$ 201,00</p>
+              <p>R$ {totalPrice + entrega}</p>
             </li>
           </ul>
           <Button text="FINALIZAR A COMPRA" icon={false} color="Green" />
