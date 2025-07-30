@@ -1,12 +1,5 @@
 # InsanyShop
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.4.4-black.svg)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
-[![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)]()
-[![Deploy](https://img.shields.io/badge/Deploy-Vercel-black.svg)](https://insany-next-js-typescript-jest.vercel.app)
-
 Uma moderna aplicação de e-commerce desenvolvida com Next.js, React e TypeScript, oferecendo uma experiência de compras online completa e intuitiva.
 
 **[Ver Aplicação Online](https://insany-next-js-typescript-jest.vercel.app)**
@@ -31,15 +24,15 @@ Uma moderna aplicação de e-commerce desenvolvida com Next.js, React e TypeScri
 
 A aplicação está disponível online e pode ser acessada através do link:
 
-** [https://insany-next-js-typescript-jest.vercel.app](https://insany-next-js-typescript-jest.vercel.app)**
+**[https://insany-next-js-typescript-jest.vercel.app](https://insany-next-js-typescript-jest.vercel.app)**
 
-_Deploy automático realizado via Vercel com integração contínua._
+Deploy automático realizado via Vercel com integração contínua.
 
 ## Sobre o Projeto
 
-O **InsanityShop** é uma plataforma de e-commerce moderna construída com as mais recentes tecnologias web. O projeto utiliza Next.js para renderização server-side, Redux Toolkit para gerenciamento de estado, e Styled Components para estilização, proporcionando uma experiência de usuário fluida e responsiva.
+O **InsanyShop** é uma plataforma de e-commerce moderna construída com as mais recentes tecnologias web. O projeto utiliza Next.js para renderização server-side, Redux Toolkit para gerenciamento de estado, e Styled Components para estilização, proporcionando uma experiência de usuário fluida e responsiva.
 
-### Por que InsanityShop?
+### Por que InsanyShop?
 
 - **Performance otimizada** com Next.js 15 e renderização server-side
 - **Interface moderna** com componentes reutilizáveis e design responsivo
@@ -62,32 +55,32 @@ O **InsanityShop** é uma plataforma de e-commerce moderna construída com as ma
 
 ### Frontend
 
-- **[Next.js 15.4.4](https://nextjs.org/)** - Framework React para produção
-- **[React 18.3.1](https://reactjs.org/)** - Biblioteca para interfaces de usuário
-- **[TypeScript 5](https://www.typescriptlang.org/)** - Superset JavaScript com tipagem estática
-- **[Styled Components 6.1.19](https://styled-components.com/)** - CSS-in-JS para estilização
-- **[React Icons 5.5.0](https://react-icons.github.io/react-icons/)** - Ícones para React
+- **Next.js 15.4.4** - Framework React para produção
+- **React 18.3.1** - Biblioteca para interfaces de usuário
+- **TypeScript 5** - Superset JavaScript com tipagem estática
+- **Styled Components 6.1.19** - CSS-in-JS para estilização
+- **React Icons 5.5.0** - Ícones para React
 
 ### Gerenciamento de Estado
 
-- **[Redux Toolkit 2.8.2](https://redux-toolkit.js.org/)** - Toolkit oficial do Redux
-- **[React Redux 9.2.0](https://react-redux.js.org/)** - Bindings oficiais React-Redux
+- **Redux Toolkit 2.8.2** - Toolkit oficial do Redux
+- **React Redux 9.2.0** - Bindings oficiais React-Redux
 
 ### Requisições e Cache
 
-- **[Axios 1.11.0](https://axios-http.com/)** - Cliente HTTP baseado em Promise
-- **[SWR 2.3.4](https://swr.vercel.app/)** - Biblioteca para fetching de dados
+- **Axios 1.11.0** - Cliente HTTP baseado em Promise
+- **SWR 2.3.4** - Biblioteca para fetching de dados
 
 ### Testes
 
-- **[Jest 30.0.5](https://jestjs.io/)** - Framework de testes JavaScript
-- **[Testing Library](https://testing-library.com/)** - Utilitários para testes de componentes
-- **[React Test Renderer](https://reactjs.org/docs/test-renderer.html)** - Renderizador de testes React
+- **Jest 30.0.5** - Framework de testes JavaScript
+- **Testing Library** - Utilitários para testes de componentes
+- **React Test Renderer** - Renderizador de testes React
 
 ### Desenvolvimento
 
-- **[Commitizen](https://commitizen.github.io/cz-cli/)** - Padronização de commits
-- **[Commitlint](https://commitlint.js.org/)** - Validação de mensagens de commit
+- **Commitizen** - Padronização de commits
+- **Commitlint** - Validação de mensagens de commit
 
 ## Pré-requisitos
 
@@ -102,8 +95,8 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 1. **Clone o repositório**
 
    ```bash
-   git clone https://github.com/seu-usuario/insanityshop.git
-   cd insanityshop
+   git clone https://github.com/Lehzinho/Insany_NextJs-Typescript-Jest.git
+   cd InsanyShop
    ```
 
 2. **Instale as dependências**
@@ -129,6 +122,7 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
    ```
 
 5. **Acesse a aplicação**
+
    Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
 ## Scripts Disponíveis
@@ -141,6 +135,8 @@ No diretório do projeto, você pode executar:
 - **`npm run lint`** - Executa o linter para verificar o código
 - **`npm run commit`** - Inicia o processo de commit padronizado com Commitizen
 - **`npm test`** - Executa os testes
+- **`npm run test:watch`** - Executa os testes em modo de observação
+- **`npm run test:coverage`** - Executa os testes com relatório de cobertura
 
 ## Como Usar
 
@@ -175,6 +171,7 @@ Para fazer deploy manual na Vercel:
    ```
 
 2. Execute o deploy:
+
    ```bash
    vercel --prod
    ```
@@ -186,3 +183,20 @@ Este projeto utiliza Commitizen para padronizar mensagens de commit:
 ```bash
 npm run commit
 ```
+
+## Testes
+
+O projeto utiliza Jest e Testing Library para testes:
+
+```bash
+# Executar todos os testes
+npm test
+
+# Executar testes em modo de observação
+npm run test:watch
+
+# Gerar relatório de cobertura
+npm run test:coverage
+```
+
+---
