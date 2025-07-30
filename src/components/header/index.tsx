@@ -7,7 +7,7 @@ import * as S from "./styles";
 const Header = () => {
   return (
     <S.Header>
-      <Container>
+      <Container style={{ marginTop: 0 }}>
         <S.MainSection>
           <Link href={"/"}>
             <h1>InsanyShop</h1>
