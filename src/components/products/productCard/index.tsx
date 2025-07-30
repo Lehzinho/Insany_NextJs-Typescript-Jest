@@ -1,19 +1,23 @@
-import Image from "next/image";
-import React from "react";
-import { LuShoppingCart } from "react-icons/lu";
-import { FaStar } from "react-icons/fa";
-import * as S from "./styles";
-import { ProductProps } from "@/model/products";
-import Link from "next/link";
 import Button from "@/components/button";
-import { useDispatch } from "react-redux";
+import { ProductProps } from "@/model/products";
+import { addSelectedCategory } from "@/redux/categories/slice";
 import { addShoppingCartItem } from "@/redux/shopingCart/slice";
+import Image from "next/image";
+import Link from "next/link";
+import { FaStar } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+
+import * as S from "./styles";
 
 const ProductCard = (item: ProductProps) => {
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
 
   function handleAddItem() {
-    dispach(addShoppingCartItem(item));
+    dispatch(addShoppingCartItem(item));
+  }
+
+  function handleChangeCategory() {
+    dispatch(addSelectedCategory(item.category));
   }
 
   return (
@@ -23,7 +27,12 @@ const ProductCard = (item: ProductProps) => {
       </Link>
       <div>
         <S.RatingContainer>
-          <p>{item.category}</p>
+          <Link
+            href={`/category/${item.category}`}
+            onClick={handleChangeCategory}
+          >
+            <p>{item.category}</p>
+          </Link>
           <p>
             <FaStar size={14} />
             {item.rating}

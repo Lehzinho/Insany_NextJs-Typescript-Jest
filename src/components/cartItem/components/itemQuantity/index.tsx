@@ -20,6 +20,7 @@ const ItemQuantity = ({ id, quantity, stock }: ItemQuantityProps) => {
     dispatch(updateItemQuantity({ id, quantity }));
     setActive((prev) => !prev);
   }
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
