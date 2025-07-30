@@ -12,6 +12,8 @@ import Link from "next/link";
 import { addCategories, addSelectedCategory } from "@/redux/categories/slice";
 
 import * as S from "@/styles/pages/home.styles";
+import { getShopingItems } from "@/storage";
+import { updateShoppingCartItem } from "@/redux/shopingCart/slice";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -40,10 +42,11 @@ export default function Home({ products, categories }: HomeProps) {
     dispatch(addProducts(products.products));
     dispatch(addPagination(products.pagination));
     dispatch(addCategories(categories.categories));
+    dispatch(updateShoppingCartItem(getShopingItems()))
   }, [dispatch, products, categories]);
 
   function handleChangeCategory(id: string) {
-    dispatch(addSelectedCategory({ id }));
+    dispatch(addSelectedCategory( id ));
   }
 
   return (

@@ -4,20 +4,30 @@ import Image from "next/image";
 
 import BackButton from "@/components/backButton";
 import Button from "@/components/button";
-import { addShoppingCartItem } from "@/redux/shopingCart/slice";
+import {
+  addShoppingCartItem,
+  updateShoppingCartItem,
+} from "@/redux/shopingCart/slice";
 import { useDispatch } from "react-redux";
 
 import * as S from "@/styles/pages/product.styles";
+import { useEffect } from "react";
+import { getShopingItems } from "@/storage";
 
 interface ProdutosProps {
   product: ProductProps;
 }
 const Product = ({ product }: ProdutosProps) => {
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
 
   function handleAddItem() {
-    dispach(addShoppingCartItem(product));
+    dispatch(addShoppingCartItem(product));
   }
+
+  useEffect(() => {
+    dispatch(updateShoppingCartItem(getShopingItems()));
+  }, []);
+
   return (
     <S.ProductContainer>
       <BackButton />

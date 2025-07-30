@@ -1,15 +1,26 @@
-import React from "react";
-import * as S from "@/styles/pages/checkout.styles";
 import BackButton from "@/components/backButton";
-import Link from "next/link";
 import Button from "@/components/button";
 import CartItem from "@/components/cartItem";
-import { useSelector } from "react-redux";
 import { AppRootState } from "@/redux/store";
+import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+
+import { CartItemProps } from "@/model/cartItem";
+import { updateShoppingCartItem } from "@/redux/shopingCart/slice";
+import { getShopingItems } from "@/storage";
+import { useEffect } from "react";
+
+import * as S from "@/styles/pages/checkout.styles";
+
 const Checkout = () => {
   const { shoppingCart, totalPrice } = useSelector(
     (state: AppRootState) => state.shopingCart
   );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateShoppingCartItem(getShopingItems()));
+  }, []);
 
   const entrega = 40;
 
@@ -19,7 +30,9 @@ const Checkout = () => {
         <BackButton />
         <h1>SEU CARRINHO</h1>
         <p>
-          Total ({shoppingCart.length} produtos) <span>R$ {totalPrice}</span>
+          Total ({shoppingCart.length}{" "}
+          {shoppingCart.length > 1 ? "produtos" : "produto"}){" "}
+          <span>R$ {totalPrice}</span>
         </p>
         <S.ItemsContainer>
           {shoppingCart.length === 0 && (
@@ -28,7 +41,7 @@ const Checkout = () => {
               <Link href={"/"}>Clique aqui para começar suas compras.</Link>
             </div>
           )}
-          {shoppingCart.map((item) => (
+          {shoppingCart.map((item: CartItemProps) => (
             <CartItem key={item.id} item={item} />
           ))}
         </S.ItemsContainer>

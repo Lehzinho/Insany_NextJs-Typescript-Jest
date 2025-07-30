@@ -1,4 +1,9 @@
 import { CartItemProps } from "@/model/cartItem";
+import {
+  deleteShopingItems,
+  getShopingItems,
+  storeShopingItems,
+} from "@/storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ShoppingCartState {
@@ -12,13 +17,21 @@ const initialState: ShoppingCartState = {
 };
 
 const calculateTotalPrice = (cart: CartItemProps[]): number => {
-  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const total = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  return parseFloat(total.toFixed(2));
 };
 
 export const shoppingCartSlice = createSlice({
   name: "shoppingCart",
   initialState,
   reducers: {
+    updateShoppingCartItem: (state, action) => {
+      state.shoppingCart = getShopingItems();
+      state.totalPrice = calculateTotalPrice(state.shoppingCart);
+    },
     addShoppingCartItem: (
       state,
       action: PayloadAction<Omit<CartItemProps, "quantity">>
@@ -36,7 +49,7 @@ export const shoppingCartSlice = createSlice({
       } else {
         state.shoppingCart[itemIndex].quantity += 1;
       }
-
+      storeShopingItems(state.shoppingCart);
       state.totalPrice = calculateTotalPrice(state.shoppingCart);
     },
 
@@ -44,6 +57,7 @@ export const shoppingCartSlice = createSlice({
       state.shoppingCart = state.shoppingCart.filter(
         (item) => item.id !== action.payload
       );
+      storeShopingItems(state.shoppingCart);
       state.totalPrice = calculateTotalPrice(state.shoppingCart);
     },
 
@@ -63,6 +77,7 @@ export const shoppingCartSlice = createSlice({
         }
         state.totalPrice = calculateTotalPrice(state.shoppingCart);
       }
+      storeShopingItems(state.shoppingCart);
     },
 
     incrementItemQuantity: (state, action: PayloadAction<number>) => {
@@ -74,6 +89,8 @@ export const shoppingCartSlice = createSlice({
         state.shoppingCart[itemIndex].quantity += 1;
         state.totalPrice = calculateTotalPrice(state.shoppingCart);
       }
+
+      storeShopingItems(state.shoppingCart);
     },
 
     decrementItemQuantity: (state, action: PayloadAction<number>) => {
@@ -90,11 +107,14 @@ export const shoppingCartSlice = createSlice({
         }
         state.totalPrice = calculateTotalPrice(state.shoppingCart);
       }
+
+      storeShopingItems(state.shoppingCart);
     },
 
     clearCart: (state) => {
       state.shoppingCart = [];
       state.totalPrice = 0;
+      deleteShopingItems();
     },
 
     setItemQuantity: (
@@ -109,6 +129,8 @@ export const shoppingCartSlice = createSlice({
         state.shoppingCart[itemIndex].quantity = action.payload.quantity;
         state.totalPrice = calculateTotalPrice(state.shoppingCart);
       }
+
+      storeShopingItems(state.shoppingCart);
     },
   },
 });
@@ -121,6 +143,7 @@ export const {
   decrementItemQuantity,
   clearCart,
   setItemQuantity,
+  updateShoppingCartItem,
 } = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

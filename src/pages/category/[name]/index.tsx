@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { AppRootState } from "@/redux/store";
 import * as S from "@/styles/pages/category.styles";
+import { updateShoppingCartItem } from "@/redux/shopingCart/slice";
+import { getShopingItems } from "@/storage";
 
 interface CategoryProps {
   products: {
@@ -26,6 +28,7 @@ const Category = ({ products }: CategoryProps) => {
   useEffect(() => {
     dispatch(addProducts(products.products));
     dispatch(addPagination(products.pagination));
+    dispatch(updateShoppingCartItem(getShopingItems()))
   }, []);
 
   return (
