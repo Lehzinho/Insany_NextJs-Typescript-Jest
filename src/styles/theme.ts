@@ -27,7 +27,7 @@ export const DefaultTheme = {
     h3: "700 0.875rem/1.5 'Inter', sans-serif",
     h2: "300 2rem/1.5 'Inter', sans-serif",
     regular: "400 0.875rem/1.5 'Inter', sans-serif",
-
+    "Inter/12/400": "400 12px/1.5 'Inter', sans-serif",
     shopingCart: "500 0.625rem/2.6 'Saira', sans-serif",
   },
   breakpoints: {

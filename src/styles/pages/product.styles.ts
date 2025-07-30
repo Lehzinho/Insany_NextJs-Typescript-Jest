@@ -2,22 +2,6 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.main`
   padding-top: 25px;
-  & > button {
-    all: unset;
-    cursor: pointer;
-    font: ${({ theme }) => theme.fonts.regular};
-    font-weight: 500;
-    margin-bottom: 22px;
-
-    p {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-
-      color: ${({ theme }) => theme.colors["gray-textos"]};
-    }
-  }
 `;
 
 export const Product = styled.section`
