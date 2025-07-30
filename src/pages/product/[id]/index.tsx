@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 import back from "@/assets/icons/back.svg";
 import Button from "@/components/button";
+import BackButton from "@/components/backButton";
 
 interface ProdutosProps {
   product: ProductProps;
@@ -15,12 +16,7 @@ const Product = ({ product }: ProdutosProps) => {
   const router = useRouter();
   return (
     <S.ProductContainer>
-      <button onClick={() => router.back()}>
-        <p>
-          <Image src={back} width={24} height={24} alt="Back button" />
-          Voltar
-        </p>
-      </button>
+      <BackButton />
       <S.Product>
         <Image
           src={product.image}
@@ -38,7 +34,7 @@ const Product = ({ product }: ProdutosProps) => {
             <h3>DESCRIÇÃO</h3>
             <p>{product.description}</p>
           </S.ProductInformation>
-          <Button />
+          <Button text="Adicionar" />
         </div>
       </S.Product>
     </S.ProductContainer>

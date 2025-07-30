@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface CategoriesState {
   categories: CategoryProps[];
-  selectedCategory: CategoryProps | null; // Pode ser null se nenhuma categoria for selecionada
+  selectedCategory: CategoryProps | null;
 }
 
 const initialState: CategoriesState = {
   categories: [],
-  selectedCategory: null, // Melhor começar com null
+  selectedCategory: null,
 };
 
 export const categoriesSlice = createSlice({
@@ -20,7 +20,6 @@ export const categoriesSlice = createSlice({
     },
 
     addSelectedCategory: (state, action) => {
-      console.log(action.payload);
       const selectedCategory = state.categories.find(
         (categ) => categ.id === action.payload.id
       );

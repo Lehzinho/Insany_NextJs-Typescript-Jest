@@ -39,7 +39,7 @@ const ProductCard = ({
           <p>R$ {price}</p>
           <p>{`${stock} em estoque`}</p>
         </S.PriceContainer>
-        <Button />
+        <Button text="Adicionar" />
       </div>
     </S.CardContainer>
   );

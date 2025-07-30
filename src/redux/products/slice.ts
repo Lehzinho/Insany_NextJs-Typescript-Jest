@@ -17,16 +17,10 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     addProducts: (state, action) => {
-      return {
-        ...state,
-        products: action.payload,
-      };
+      state.products = action.payload;
     },
     addPagination: (state, action) => {
-      return {
-        ...state,
-        pagination: action.payload,
-      };
+      state.pagination = action.payload;
     },
   },
 });
