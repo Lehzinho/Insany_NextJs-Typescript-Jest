@@ -9,7 +9,12 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true,
+      ssr: true,
+      fileName: true,
+      meaninglessFileNames: ["index", "styles"],
+    },
   },
   images: {
     domains: ["images.unsplash.com"],
