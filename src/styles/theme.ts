@@ -9,22 +9,26 @@ export const DefaultTheme = {
     "logo-color": "#5D5D6D",
     "textos-apoio": "#737380",
     "border-color": "#E0E0E0",
+    "Inputs-Icons": "#41414D",
+    "gray-textos": "#617480",
     purple: "#A212DF",
     excluir: "#DE3838",
   },
   fonts: {
-    logo: "700 2.5rem/1.5 Inter",
+    logo: "700 2.5rem/1.5 'Inter', sans-serif",
 
-    price: "700 1.5rem/1.5 inter",
+    price: "700 1.5rem/1.5 'Inter', sans-serif",
+    price600: "600 1.25rem/1.5 'Inter', sans-serif",
 
-    button: "500 1rem/1.5 Inter",
-    buttonRegular: "400 1rem/1.5 Inter",
-    categoryh3: "700 1rem/1.5 inter",
+    button: "500 1rem/1.5 'Inter', sans-serif",
+    buttonRegular: "400 1rem/1.5 'Inter', sans-serif",
+    categoryh3: "700 1rem/1.5 'Inter', sans-serif",
 
-    h3: "700 0.875rem/1.5 Inter",
-    regular: "400 0.875rem/1.5 Inter",
+    h3: "700 0.875rem/1.5 'Inter', sans-serif",
+    h2: "300 2rem/1.5 'Inter', sans-serif",
+    regular: "400 0.875rem/1.5 'Inter', sans-serif",
 
-    shopingCart: "500 0.625rem/2.6 Saira",
+    shopingCart: "500 0.625rem/2.6 'Saira', sans-serif",
   },
   breakpoints: {
     mobile: "48rem",
@@ -39,6 +43,6 @@ export const DefaultTheme = {
     xl: "32px",
     xxl: "48px",
   },
-};
+} as const;
 
 export type Theme = typeof DefaultTheme;

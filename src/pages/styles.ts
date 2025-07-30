@@ -26,14 +26,15 @@ export const CategoriesContainer = styled.section`
   gap: 20px;
 
   margin-bottom: 168px;
-  & > button {
+  & > a {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
 
     width: 208px;
     height: 116px;
-    padding: 32px 40px;
 
     border-radius: 12px;
     border: 1px solid ${({ theme }) => theme.colors["border-color"]};

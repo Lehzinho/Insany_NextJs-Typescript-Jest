@@ -1,12 +1,16 @@
 import Head from "next/head";
 import * as S from "./styles";
 import { Inter, Saira } from "next/font/google";
-import ProductCard from "@/components/productCard";
 import { GetStaticProps } from "next";
 import { ProductProps } from "@/model/products";
 import { PaginationProps } from "@/model/pagination";
-import Pagination from "@/components/pagination";
 import { CategoryProps } from "@/model/category";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { addPagination, addProducts } from "@/redux/products/slice";
+import Products from "@/components/products";
+import Link from "next/link";
+import { addCategories, addSelectedCategory } from "@/redux/categories/slice";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,7 +33,18 @@ interface HomeProps {
 }
 
 export default function Home({ products, categories }: HomeProps) {
-  console.log(categories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addProducts(products.products));
+    dispatch(addPagination(products.pagination));
+    dispatch(addCategories(categories.categories));
+  }, [dispatch, products, categories]);
+
+  function handleChangeCategory(id: string) {
+    dispatch(addSelectedCategory({ id }));
+  }
+
   return (
     <>
       <Head>
@@ -40,21 +55,18 @@ export default function Home({ products, categories }: HomeProps) {
       </Head>
       <S.Container className={`${inter.variable} ${saira.variable}`}>
         <h1>Todos os produtos</h1>
-        <S.ProductsContainer>
-          <div>
-            {products.products.map((prod) => (
-              <ProductCard key={prod.id} {...prod} />
-            ))}
-          </div>
-          <Pagination {...products.pagination} />
-        </S.ProductsContainer>
+        <Products />
         <h1>Principais categorias</h1>
         <S.CategoriesContainer>
           {categories.categories.map((item) => (
-            <button>
+            <Link
+              href={`/category/${item.id}`}
+              key={item.id}
+              onClick={() => handleChangeCategory(item.id)}
+            >
               <h3>{item.name}</h3>
               <p>{`${item.productCount} produtos`}</p>
-            </button>
+            </Link>
           ))}
         </S.CategoriesContainer>
       </S.Container>
@@ -90,8 +102,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
       props: {
-        categories: [],
-        products: [],
+        products: {
+          products: [],
+          pagination: {} as PaginationProps,
+        },
+        categories: {
+          categories: [],
+        },
       },
     };
   }
