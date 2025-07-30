@@ -1,11 +1,23 @@
 import { LuShoppingCart } from "react-icons/lu";
 import * as S from "./styles";
+import { ButtonHTMLAttributes } from "react";
 
-const Button = () => {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
+  icon?: boolean;
+  color?: "Black" | "Green";
+}
+
+const Button = ({
+  text,
+  icon = false,
+  color = "Black",
+  ...props
+}: ButtonProps) => {
   return (
-    <S.Button>
-      <LuShoppingCart size={24} />
-      Adicionar
+    <S.Button $color={color} {...props}>
+      {icon && <LuShoppingCart size={24} />}
+      {text}
     </S.Button>
   );
 };
