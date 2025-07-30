@@ -1,5 +1,5 @@
 import { CategoryProps } from "@/model/category";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CategoriesState {
   categories: CategoryProps[];
@@ -15,13 +15,13 @@ export const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    addCategories: (state, action) => {
+    addCategories: (state, action: PayloadAction<CategoryProps[]>) => {
       state.categories = action.payload;
     },
 
-    addSelectedCategory: (state, action) => {
+    addSelectedCategory: (state, action: PayloadAction<string>) => {
       const selectedCategory = state.categories.find(
-        (categ) => categ.id === action.payload.id
+        (categ) => categ.id === action.payload
       );
 
       if (selectedCategory) {

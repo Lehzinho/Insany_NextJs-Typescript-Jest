@@ -1,6 +1,6 @@
 import { PaginationProps } from "@/model/pagination";
 import { ProductProps } from "@/model/products";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ProductsState {
   products: ProductProps[];
@@ -16,10 +16,10 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    addProducts: (state, action) => {
+    addProducts: (state, action: PayloadAction<ProductProps[]>) => {
       state.products = action.payload;
     },
-    addPagination: (state, action) => {
+    addPagination: (state, action: PayloadAction<PaginationProps>) => {
       state.pagination = action.payload;
     },
   },
