@@ -19,7 +19,7 @@ export const Button = styled.button<ButtonProps>`
   background-color: ${({ theme, $color }) =>
     $color === "Black" ? theme.colors.black : theme.colors.green};
   color: ${({ theme }) => theme.colors.white};
-  font: ${({ theme }) => theme.fonts.button};
+  font: ${({ theme }) => theme.fonts["Inter/16/500"]};
 
   cursor: pointer;
 

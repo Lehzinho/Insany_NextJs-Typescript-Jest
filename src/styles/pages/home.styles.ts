@@ -3,6 +3,13 @@ import styled from "styled-components";
 export const Container = styled.main`
   & > h1 {
     margin-bottom: 34px;
+    text-align: center;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    & > h1 {
+      text-align: left;
+    }
   }
 `;
 
@@ -23,6 +30,7 @@ export const CategoriesContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 
   margin-bottom: 168px;
@@ -43,11 +51,17 @@ export const CategoriesContainer = styled.section`
     cursor: pointer;
     h3 {
       white-space: nowrap;
-      ${({ theme }) => theme.fonts.categoryh3}
+      ${({ theme }) => theme.fonts["Inter/16/700"]}
     }
 
     & > p {
-      font: ${({ theme }) => theme.fonts.buttonRegular};
+      font: ${({ theme }) => theme.fonts["Inter/16/500"]};
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
   }
 `;

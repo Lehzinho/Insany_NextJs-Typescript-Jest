@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ButtonContainer = styled.button`
   all: unset;
   cursor: pointer;
-  font: ${({ theme }) => theme.fonts.regular};
+  font: ${({ theme }) => theme.fonts["Inter/14/400"]};
   font-weight: 500;
   margin-bottom: 22px;
 

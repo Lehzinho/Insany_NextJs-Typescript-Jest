@@ -32,7 +32,7 @@ export const PaginationButton = styled.button<PaginationButtonProps>`
     $active ? `solid 1px ${theme.colors.purple}` : "none"};
   color: ${({ theme, $active }) =>
     $active ? theme.colors.purple : theme.colors["textos-apoio"]};
-  font: ${({ theme }) => theme.fonts.buttonRegular};
+  font: ${({ theme }) => theme.fonts["Inter/16/500"]};
 
   cursor: pointer;
 `;

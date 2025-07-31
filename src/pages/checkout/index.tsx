@@ -47,6 +47,7 @@ const Checkout = () => {
         </S.ItemsContainer>
       </S.CartContainer>
       <S.OrderContainer>
+        <BackButton />
         <div>
           <h1>RESUMO DO PEDIDO</h1>
           <ul>

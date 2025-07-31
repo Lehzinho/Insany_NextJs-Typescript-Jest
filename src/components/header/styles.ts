@@ -10,14 +10,16 @@ export const Header = styled.div`
 
 export const MainSection = styled.section`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
+  height: 124px;
 
   width: 100%;
-  height: 80px;
 
   h1 {
-    font: ${({ theme }) => theme.fonts.logo};
+    font: ${({ theme }) => theme.fonts["Inter/40/700"]};
     color: ${({ theme }) => theme.colors["logo-color"]};
   }
 
@@ -27,5 +29,11 @@ export const MainSection = styled.section`
     align-items: center;
 
     gap: 24px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
   }
 `;

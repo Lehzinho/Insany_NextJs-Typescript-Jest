@@ -20,7 +20,7 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.colors.excluir};
     color: ${({ theme }) => theme.colors.white};
 
-    font: ${({ theme }) => theme.fonts.shopingCart};
+    font: ${({ theme }) => theme.fonts["Saira/10/500"]};
 
     width: 17px;
     height: 17px;

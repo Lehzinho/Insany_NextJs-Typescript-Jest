@@ -2,16 +2,29 @@ import styled from "styled-components";
 
 export const CartItemContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   background-color: ${({ theme }) => theme.colors.white};
 
   img {
-    border-radius: 8px 0 0 8px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
   }
   border-radius: 8px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-wrap: nowrap;
+    img {
+      width: 256px;
+      height: 211px;
+      border-radius: 8px 0 0 8px;
+    }
+  }
 `;
 
 export const CartItemInformation = styled.div`
+  min-width: 256px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,5 +49,10 @@ export const CartItemInformation = styled.div`
   & > div:first-child > button {
     all: unset;
     cursor: pointer;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
   }
 `;
