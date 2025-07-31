@@ -6,6 +6,7 @@ export const Header = styled.div`
   top: 0;
   left: 0;
   background-color: ${({ theme }) => theme.colors.white};
+  z-index: 100;
 `;
 
 export const MainSection = styled.section`

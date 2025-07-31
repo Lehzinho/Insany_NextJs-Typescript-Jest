@@ -31,12 +31,10 @@ const ItemQuantity = ({ id, quantity, stock }: ItemQuantityProps) => {
       }
     }
 
-    // Adiciona o event listener apenas quando o dropdown está ativo
     if (active) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
-    // Cleanup: remove o event listener
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
