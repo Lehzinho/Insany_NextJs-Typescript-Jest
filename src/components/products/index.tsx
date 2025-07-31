@@ -11,12 +11,20 @@ const Products = () => {
   );
   return (
     <S.ProductsContainer>
-      <div>
-        {products.map((prod) => (
-          <ProductCard key={prod.id} {...prod} />
-        ))}
-      </div>
-      <Pagination {...pagination} />
+      {products.length > 0 ? (
+        <>
+          <div>
+            {products.map((prod) => (
+              <ProductCard key={prod.id} {...prod} />
+            ))}
+          </div>
+          <Pagination {...pagination} />
+        </>
+      ) : (
+        <S.NenhumProduto>
+          <h1>Nenhum Produto encontrado</h1>
+        </S.NenhumProduto>
+      )}
     </S.ProductsContainer>
   );
 };

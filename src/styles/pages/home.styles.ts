@@ -65,3 +65,10 @@ export const CategoriesContainer = styled.section`
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
   }
 `;
+
+export const SortContainer = styled.section`
+  padding: 32px 0;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+`;

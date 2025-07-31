@@ -22,3 +22,9 @@ export const ProductsContainer = styled.section`
     }
   }
 `;
+
+export const NenhumProduto = styled.div`
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+`;
