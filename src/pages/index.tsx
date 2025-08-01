@@ -43,11 +43,11 @@ export default function Home({ products, categories }: HomeProps) {
     dispatch(addProducts(products.products));
     dispatch(addPagination(products.pagination));
     dispatch(addCategories(categories.categories));
-    dispatch(updateShoppingCartItem(getShopingItems()))
+    dispatch(updateShoppingCartItem(getShopingItems()));
   }, [dispatch, products, categories]);
 
   function handleChangeCategory(id: string) {
-    dispatch(addSelectedCategory( id ));
+    dispatch(addSelectedCategory(id));
   }
 
   return (
@@ -62,7 +62,13 @@ export default function Home({ products, categories }: HomeProps) {
         <S.SortContainer>
           <CategoryDropdown title="Selecione a categoria">
             {categories.categories.map((item) => (
-              <Link href={`/category/${item.id}`} onClick={() => handleChangeCategory(item.id)}>{item.name}</Link>
+              <Link
+                key={item.id}
+                href={`/category/${item.id}`}
+                onClick={() => handleChangeCategory(item.id)}
+              >
+                {item.name}
+              </Link>
             ))}
           </CategoryDropdown>
           <CategoryDropdown title="Organizar por">

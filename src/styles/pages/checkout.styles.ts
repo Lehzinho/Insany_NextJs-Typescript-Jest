@@ -115,6 +115,7 @@ export const ItemsContainer = styled.div`
   max-height: calc(100vh - 290px);
   overflow-y: scroll;
   flex-direction: column;
+  min-height: 550px;
   gap: 16px;
   a {
     font: ${({ theme }) => theme.fonts["Inter/24/700"]};
