@@ -1,10 +1,9 @@
-import React from "react";
 import { PaginationProps } from "@/model/pagination";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-import * as S from "./styles";
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
 import { addPagination, addProducts } from "@/redux/products/slice";
+import { useRouter } from "next/router";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import * as S from "./styles";
 
 const Pagination = ({
   currentPage,

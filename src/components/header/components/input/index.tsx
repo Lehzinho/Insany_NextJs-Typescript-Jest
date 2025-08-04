@@ -1,9 +1,9 @@
 import { IoSearchOutline } from "react-icons/io5";
 
-import * as S from "./styles";
+import { addPagination, addProducts } from "@/redux/products/slice";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPagination, addProducts } from "@/redux/products/slice";
+import * as S from "./styles";
 
 const Input = () => {
   const dispatch = useDispatch();
